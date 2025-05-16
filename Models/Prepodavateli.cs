@@ -2,6 +2,7 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 namespace University.Models
 {
@@ -25,5 +26,12 @@ namespace University.Models
         public virtual Kafedri KafedraNavigation { get; set; }
         public virtual Stepeni StepenNavigation { get; set; }
         public virtual ICollection<Kafedri> Kafedris { get; set; }
+
+        public bool isValidFIO()
+        {
+            return Regex.Match(Lastname,@"[а-яА-Я]+").Success &&
+                   Regex.Match(Name, @"[а-яА-Я]+").Success &&
+                   Regex.Match(Surname, @"[а-яА-Я]+").Success;
+        }
     }
 }
