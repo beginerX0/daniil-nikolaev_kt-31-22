@@ -24,7 +24,7 @@ namespace University.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Data Source=DESKTOP-Q2FN2DK;Initial Catalog=University;Integrated Security=True;Encrypt=False");
+                optionsBuilder.UseSqlServer("Data Source=DESKTOP-Q2FN2DK;Initial Catalog=University1;Integrated Security=True;Encrypt=False");
             }
         }
 
@@ -77,9 +77,11 @@ namespace University.Models
 
             modelBuilder.Entity<PrepDisciplini>(entity =>
             {
-                entity.HasNoKey();
+                //entity.HasNoKey();
 
                 entity.ToTable("prepDisciplini");
+
+                entity.Property(e => e.Id).HasColumnName("id");//
 
                 entity.Property(e => e.DiscId).HasColumnName("disc_id");
 

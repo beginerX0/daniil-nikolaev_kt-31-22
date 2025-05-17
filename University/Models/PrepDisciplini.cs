@@ -7,6 +7,7 @@ namespace University.Models
 {
     public partial class PrepDisciplini
     {
+        public int Id { get; set; }
         public int? PrepId { get; set; }
         public int? DiscId { get; set; }
 

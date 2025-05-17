@@ -3,7 +3,6 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using University.Models;
 
@@ -12,15 +11,13 @@ using University.Models;
 namespace University.Migrations
 {
     [DbContext(typeof(UniversityContext))]
-    [Migration("20250511063017_m1")]
-    partial class m1
+    partial class UniversityContextModelSnapshot : ModelSnapshot
     {
-        /// <inheritdoc />
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.11")
+                .HasAnnotation("ProductVersion", "7.0.20")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -94,6 +91,13 @@ namespace University.Migrations
 
             modelBuilder.Entity("University.Models.PrepDisciplini", b =>
                 {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("id");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
                     b.Property<int?>("DiscId")
                         .HasColumnType("int")
                         .HasColumnName("disc_id");
@@ -101,6 +105,8 @@ namespace University.Migrations
                     b.Property<int?>("PrepId")
                         .HasColumnType("int")
                         .HasColumnName("prep_id");
+
+                    b.HasKey("Id");
 
                     b.HasIndex("DiscId");
 

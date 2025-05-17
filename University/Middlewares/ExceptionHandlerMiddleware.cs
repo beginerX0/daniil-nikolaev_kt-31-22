@@ -1,4 +1,5 @@
-﻿using System.Net;
+﻿using System;
+using System.Net;
 
 namespace University.Middlewares
 {
@@ -68,6 +69,6 @@ namespace University.Middlewares
             Succeeded = true;
             Message = message;
         }
-
     }
+
 }
